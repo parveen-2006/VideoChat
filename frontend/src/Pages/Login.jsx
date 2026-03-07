@@ -1,10 +1,28 @@
 import React, { useState } from "react";
+import instance from "../services/api";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
-  const [login, setLogin] = usestate({
+  const [login, setLogin] = useState({
     email: "",
     password: "",
   });
+  const navigate =  useNavigate()
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const result = await instance.post("/user/login", login);
+      if (result && result.data.success && result.data.token) {
+        localStorage.setItem("token", result.data.token);
+        navigate("/")
+      }
+      console.log(result);
+      alert("login Successfully");
+    } catch (err) {
+      console.log("login err : ", err);
+    }
+  };
 
   const handleChange = (e) => {
     let { name, value } = e.target;

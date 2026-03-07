@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import instance from "../services/api";
+import { useNavigate } from "react-router-dom";
 
 export default function Register() {
   const [Register, setRegister] = useState({
@@ -9,14 +10,16 @@ export default function Register() {
     confirmPassword: "",
   });
 
-  const handleValidation = () =>{
-    if(!name || !email || !password || !createPassword){
-        alert("fill you data");
+  const navigate = useNavigate();
+
+  const handleValidation = () => {
+    if (!name || !email || !password || !createPassword) {
+      alert("fill you data");
     }
-    if(password !==password){
-        alert('password mismatched');
+    if (password !== password) {
+      alert("password mismatched");
     }
-  }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,6 +34,7 @@ export default function Register() {
         password: "",
         confirmPassword: "",
       });
+      navigate("/login")
     } catch (err) {
       console.log("register : ", err.response);
     }
