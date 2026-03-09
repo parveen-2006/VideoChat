@@ -12,14 +12,14 @@ export default function Register() {
 
   const navigate = useNavigate();
 
-  const handleValidation = () => {
-    if (!name || !email || !password || !createPassword) {
-      alert("fill you data");
-    }
-    if (password !== password) {
-      alert("password mismatched");
-    }
-  };
+  // const handleValidation = () => {
+  //   if (!name || !email || !password || !createPassword) {
+  //     alert("fill you data");
+  //   }
+  //   if (password !== password) {
+  //     alert("password mismatched");
+  //   }
+  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -34,7 +34,7 @@ export default function Register() {
         password: "",
         confirmPassword: "",
       });
-      navigate("/login")
+      navigate("/login");
     } catch (err) {
       console.log("register : ", err.response);
     }
@@ -46,10 +46,10 @@ export default function Register() {
   };
 
   return (
-    <>
+    <div className="flex items-center flex-col gap-15">
       <h1 className="text-6xl">Create account</h1>
       <form
-        className="border h-[300px] w-fit rounded grid row-2"
+        className="border-3 h-[300px] w-fit rounded grid row-2 border-blue-400 p-3 bg-blue-200/20 "
         onSubmit={handleSubmit}
       >
         <div>
@@ -61,6 +61,7 @@ export default function Register() {
             onChange={handleChange}
             placeholder="Enter your name"
             required
+            className="ml-3  rounded p-2 focus:outline-sky-300"
           />
         </div>
         <div>
@@ -72,6 +73,7 @@ export default function Register() {
             onChange={handleChange}
             placeholder="Enter your email"
             required
+            className="ml-3  rounded p-2 focus:outline-sky-300"
           />
         </div>
         <div>
@@ -83,6 +85,7 @@ export default function Register() {
             onChange={handleChange}
             placeholder="Create a password"
             required
+            className="ml-3  rounded p-2 focus:outline-sky-300"
           />
         </div>
         <div>
@@ -94,15 +97,16 @@ export default function Register() {
             onChange={handleChange}
             placeholder="Confirm password"
             required
+            className="ml-3  rounded p-2 focus:outline-sky-300"
           />
         </div>
         <button
           type="submit"
-          className="text-white rounded-2xl h-12 w-23 text-2xl bg-blue-300  "
+          className="border outline-none  rounded h-8 w-23 text-1xl self-center place-self-center"
         >
           Submit
         </button>
       </form>
-    </>
+    </div>
   );
 }

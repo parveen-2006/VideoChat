@@ -3,6 +3,7 @@ const User = require("../Model/User.model");
 const router = express.Router();
 const jwt = require("jsonwebtoken");
 const brcypt = require("bcrypt");
+require("dotenv").config();
 
 // Register route
 router.post("/register", async (req, res) => {
@@ -74,7 +75,9 @@ router.post("/login", async (req, res) => {
       registeredUser,
     };
 
-    const JWT_SECRET = "videoChat";
+    const JWT_SECRET = process.env.JWT_SECRET;
+    console.log("jwt secret :", JWT_SECRET);
+
     let token = jwt.sign(tokenpayload, JWT_SECRET, {
       expiresIn: "24h",
     });
