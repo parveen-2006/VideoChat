@@ -2,56 +2,77 @@ import React from "react";
 import { FaCircle } from "react-icons/fa";
 import { GoTriangleRight } from "react-icons/go";
 import Marquee from "../Components/marquee";
-
+import Card from "../Components/Card";
 
 export default function Home() {
   return (
     <>
-      <div className="flex h-[90vh] items-center justify-around border bg-amber-50/1">
-        <div className="border h-[100%] w-[50%] flex items-start justify-center flex-col p-14 gap-7">
-          {/* icons - ai */}
-          <div className="notify rounded-xl border text-sky-500 border-sky-400 h-[25px] w-[190px] flex justify-center">
+      <div className="flex flex-col lg:flex-row min-h-[90vh] items-center justify-between bg-amber-50/1">
+
+        {/* LEFT SIDE */}
+        <div className="w-full lg:w-1/2 flex flex-col justify-center p-6 sm:p-10 lg:p-14 gap-6">
+
+          {/* notification */}
+          <div className="rounded-xl border text-sky-500 border-sky-400 h-[25px] w-[190px] flex justify-center">
             <h3 className="text-[10px] m-1 flex items-center gap-2 font-medium">
-              <FaCircle className="text-sky-500 text-[6px]" /> AI noise
-              cancellation - now live
+              <FaCircle className="text-sky-500 text-[6px]" />
+              AI noise cancellation - now live
             </h3>
           </div>
-          {/* content */}
-          <div className="h-[250px] text-6xl font-medium font-serif flex flex-col gap-2 items-center">
-            <h1 className="leading-[60px]">
+
+          {/* heading */}
+          <div className="font-medium font-serif flex flex-col gap-2">
+
+            <h1 className="text-3xl sm:text-4xl lg:text-6xl leading-tight">
               Video calls that <br />
               feel
               <span className="text-sky-400 italic"> genuinely</span>
               <br /> human.
             </h1>
-            <h2 className="text-gray-300 text-5xl">
+
+            <h2 className="text-gray-300 text-2xl sm:text-3xl lg:text-5xl">
               Not
               <span className="italic"> just Functional.</span>
             </h2>
+
           </div>
-          {/* Paragraphs */}
-          <p className="text-gray-400 text-2xl">
+
+          {/* paragraph */}
+          <p className="text-gray-400 text-base sm:text-lg lg:text-2xl max-w-xl">
             Parvyn brings the warmth back to remote conversation — HD clarity,
-            near-zero latency, and a calm interface <br /> that never gets in
-            your way.
+            near-zero latency, and a calm interface that never gets in your way.
           </p>
-          {/* BUTTON */}
-          <div className="flex items-center justify-between gap-6">
-            <button className="h-[50px] w-[180px] text-white  text-[17px] hover:shadow-xl border-sky-300 bg-sky-300 hover:bg-sky-500 rounded-4xl flex items-center p-2 justify-center">
+
+          {/* buttons */}
+          <div className="flex flex-col sm:flex-row gap-4">
+
+            <button className="h-[50px] w-full sm:w-[180px] text-white text-[16px] hover:shadow-xl border-sky-300 bg-sky-300 hover:bg-sky-500 rounded-full flex items-center justify-center gap-2">
               <GoTriangleRight />
-              <h1>Start a call for free</h1>
+              Start a call
             </button>
-            <button className="h-[50px] w-[180px] hover:text-sky-300 border-sky-300 border hover:border-2  rounded-4xl flex items-center p-2 justify-center">
+
+            <button className="h-[50px] w-full sm:w-[180px] hover:text-sky-300 border-sky-300 border hover:border-2 rounded-full flex items-center justify-center gap-2">
               <GoTriangleRight />
-              <h1>Start a call for free</h1>
+              Watch demo
             </button>
+
           </div>
         </div>
-        <div className="border h-[100%] w-[50%] flex items-center justify-center">
-          pictures
+
+        {/* RIGHT SIDE */}
+        <div className="w-full h-[89vh] lg:w-1/2 flex items-center justify-center p-6 bg-sky-400/10
+        ">
+          <img
+            src="https://www.pexels.com/photo/fresh-lemons-in-sunlight-on-a-textured-surface-36371223/https://www.pexels.com/photo/fresh-lemons-in-sunlight-on-a-textured-surface-36371223/"
+            alt="Video call interface preview"
+            className="w-full max-w-[520px] rounded-3xl shadow-2xl"
+          />
         </div>
+
       </div>
+
       <Marquee />
+      <Card />
     </>
   );
 }
