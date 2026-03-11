@@ -11,14 +11,14 @@ router.post("/register", async (req, res) => {
     let { name, email, password, confirmPassword } = req.body;
     //Validation
     if (!name || !email || !password || !confirmPassword) {
-      res.status(401).json({
+      return res.status(401).json({
         success: false,
         message: "Fill you data",
       });
     }
     console.log(confirmPassword, password);
     if (password !== confirmPassword) {
-      res.status(401).json({
+      return res.status(401).json({
         success: false,
         message: "password mismatched",
       });
@@ -55,17 +55,17 @@ router.post("/login", async (req, res) => {
     // console.log(registeredUser);
 
     if (!registeredUser) {
-      res.status(404).json({
+      return res.status(404).json({
         success: false,
         message: "User not found",
       });
     }
 
     //comapre password
-    const isMatch = brcypt.compare(password, registeredUser.password);
+    const isMatch = await brcypt.compare(password, registeredUser.password);
 
     if (!isMatch) {
-      res.status(401).json({
+      return res.status(401).json({
         success: false,
         message: "invalid Credentials",
       });

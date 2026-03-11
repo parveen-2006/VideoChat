@@ -3,8 +3,21 @@ import { FaCircle } from "react-icons/fa";
 import { GoTriangleRight } from "react-icons/go";
 import Marquee from "../Components/marquee";
 import Card from "../Components/Card";
+import Room from "./Room";
+import { useNavigate} from "react-router-dom"
+import videoCall from "../assets/videocall.png"
+import favicon from "../assets/favicon.png"
+
+
 
 export default function Home() {
+
+  const navigate = useNavigate();
+
+  const RoomNavigate = () => {
+    navigate('/room')
+  }
+
   return (
     <>
       <div className="flex flex-col lg:flex-row min-h-[90vh] items-center justify-between bg-amber-50/1">
@@ -46,7 +59,8 @@ export default function Home() {
           {/* buttons */}
           <div className="flex flex-col sm:flex-row gap-4">
 
-            <button className="h-[50px] w-full sm:w-[180px] text-white text-[16px] hover:shadow-xl border-sky-300 bg-sky-300 hover:bg-sky-500 rounded-full flex items-center justify-center gap-2">
+            <button className="h-[50px] w-full sm:w-[180px] text-white text-[16px] hover:shadow-xl border-sky-300 bg-sky-300 hover:bg-sky-500 rounded-full flex items-center justify-center gap-2"
+              onClick={RoomNavigate}>
               <GoTriangleRight />
               Start a call
             </button>
@@ -63,9 +77,9 @@ export default function Home() {
         <div className="w-full h-[89vh] lg:w-1/2 flex items-center justify-center p-6 bg-sky-400/10
         ">
           <img
-            src="https://www.pexels.com/photo/fresh-lemons-in-sunlight-on-a-textured-surface-36371223/https://www.pexels.com/photo/fresh-lemons-in-sunlight-on-a-textured-surface-36371223/"
+            src={videoCall}
             alt="Video call interface preview"
-            className="w-full max-w-[520px] rounded-3xl shadow-2xl"
+            className="w-full max-w-[520px] rounded-3xl"
           />
         </div>
 
