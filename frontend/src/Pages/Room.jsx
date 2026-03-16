@@ -67,7 +67,7 @@ export default function Room() {
         autoPlay
         muted
         playsInline
-        className="absolute bottom-28 right-6 w-56 rounded-xl border-2 border-gray-700 shadow-lg"
+        className="absolute bottom-28 right-6 w-56 rounded-xl border-2 border-gray-700 shadow-lg scale-x-[-1]"
       />
 
       {/* Controls */}

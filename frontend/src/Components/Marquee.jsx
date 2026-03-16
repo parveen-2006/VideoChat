@@ -14,17 +14,15 @@ export default function Marquee() {
   ];
 
   return (
-    <div className="bg-gray-800 h-10 flex items-center">
-      <marquee scrollAmount="6">
-        <div className="flex gap-20 whitespace-nowrap">
-          {[...List, ...List , ...List].map((v, k) => (
-            <div key={k} className="flex items-center gap-2 text-white">
-              <span>{v.icons}</span>
-              <span>{v.content}</span>
-            </div>
-          ))}
-        </div>
-      </marquee>
+    <div className="bg-gray-800 h-12 overflow-hidden flex items-center">
+     <div className="flex animate-[marquee_30s_linear_infinite] gap-20 whitespace-nowrap text-white">
+        {[...List, ...List].map((v, k) => (
+          <div key={k} className="flex items-center gap-2">
+            <span>{v.icons}</span>
+            <span>{v.content}</span>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
