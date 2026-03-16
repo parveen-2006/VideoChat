@@ -7,7 +7,7 @@ import Room from "./Room";
 import { useNavigate} from "react-router-dom"
 import videoCall from "../assets/videocall.png"
 import favicon from "../assets/favicon.png"
-
+import { v4 as uuid4 } from "uuid"
 
 
 export default function Home() {
@@ -15,7 +15,8 @@ export default function Home() {
   const navigate = useNavigate();
 
   const RoomNavigate = () => {
-    navigate('/room')
+    const roomId  =  uuid4();
+    navigate(`/room?id=${roomId}`);
   }
 
   return (
